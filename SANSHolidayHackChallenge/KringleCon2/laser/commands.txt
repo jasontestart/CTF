@@ -1,0 +1,15 @@
+Get-Content /home/callingcard.txt
+history
+Set-Location Env:
+Get-ChildItem riddle | Format-List
+Set-Location /home/elf
+Get-ChildItem -Path /etc -Rec | Sort-object -Bottom 1 -Property LastWriteTime
+Expand-Archive /etc/apt/archive
+Get-ChildItem -Rec ./archive
+chmod +x /home/elf/archive/refraction/runme.elf
+/home/elf/archive/refraction/runme.elf
+Get-Content ./archive/refraction/riddle
+Get-ChildItem -File -Rec | Get-FileHash -Alg MD5 | Select Path,Hash | Select-String -Pattern 25520151A320B5B0D21561F92C8F6224
+Get-Content /home/elf/depths/produce/thhy5hll.txt
+
+Get-ChildItem -Rec /home/elf/depths | Select-Object FullName | Sort-Object -Bottom 1 -Property @{Expression = {$_.FullName.length}} | Format-List

@@ -1,0 +1,9 @@
+root@kali:~/JohnTheRipper-bleeding-jumbo/run# ./john ../../2017/edb/jwt_token 
+Using default input encoding: UTF-8
+Loaded 1 password hash (HMAC-SHA256 [password is key, SHA256 256/256 AVX2 8x])
+Warning: OpenMP is disabled; a non-OpenMP build may be faster
+Press 'q' or Ctrl-C to abort, almost any other key for status
+3lv3s            (?)
+1g 0:00:01:46 DONE 3/3 (2017-12-24 10:53) 0.009424g/s 3011Kp/s 3011Kc/s 3011KC/s 3lv31..3lv36
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed

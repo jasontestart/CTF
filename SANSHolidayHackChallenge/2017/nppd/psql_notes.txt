@@ -1,0 +1,88 @@
+# Create an intermediate table to store the json
+create table json_import (doc json);
+
+\copy naughty_and_nice from 'Naughty and Nice List.csv' CSV;
+
+# Import the JSON data fetched from the infractions site
+# to the temporary table.
+\copy json_import from all_infractions.json;
+
+# Convert the JSON data to tabular format
+insert into infraction (status,severity,title,date,name) select p.status,p.severity,p.title,p.date,p.name from json_import l cross join lateral json_populate_recordset(null::infraction, doc) as p;
+
+# WHAT DOES IT TAKE TO GET ON NAUGHTY LIST?
+
+jason=> select min(s.num) from (select i.name,count(i.id) num from infraction i join naughty_and_nice n on n.name = i.name where n.state = 'Naughty' group by i.name) s;
+ min
+-----
+   4
+(1 row)
+
+#WHO ARE THE MOLES?
+
+jason=> select distinct name from infraction where title = 'Throwing rocks (at people)' order by name;
+       name
+-------------------
+ Adrian Kemp
+ Alexa Pearson
+ Ashlee Chen
+ Beverly Khalil
+ Bonnie Roberts
+ Boq Questrian
+ Brooke Phillips
+ Camille Silva
+ Charles Mathews
+ Charmaine Joseph
+ Curtis Summers
+ Derrick Christian
+ Erika Norton
+ Kirsty Evans
+ Lucas Daly
+ Meagan Donovan
+ Nancy Tan
+ Nina Fitzgerald
+ Rich Rojas
+ Roy Simmons
+ Sheri Lewis
+ Stefanie Chauhan
+ Suzanne Hart
+ Wesley Morton
+(24 rows)
+
+jason=> select distinct name from infraction where title = 'Aggravated pulling of hair' order by name;
+        name
+--------------------
+ Beverly Khalil
+ Bini Aru
+ Bonnie Maher
+ Carla Buchanan
+ Christy Srivastava
+ Deepak Obrien
+ Gordon White
+ Isabel Mehta
+ Joy Chandler
+ Juanita Gurung
+ Kirsty Evans
+ Logan Griffith
+ Manuel Graham
+ Neha Shaikh
+ Nina Fitzgerald
+ Ross Garrett
+ Sheri Lewis
+ Sumit Anand
+ Suzanne Richard
+ Tania Buchanan
+ Vera Harrington
+(21 rows)
+
+We know:
+
+Bini Aru
+Boq Questrian
+
+On both lists:
+
+Beverly Khalil
+Kirsty Evans
+Nina Fitzgerald
+Sheri Lewis

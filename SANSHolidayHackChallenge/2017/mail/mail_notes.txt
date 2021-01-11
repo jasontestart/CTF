@@ -1,0 +1,13 @@
+Hints about dev files, calls for an nmap -A -p 80.
+
+Nmap scan report for mail.northpolechristmastown.com (10.142.0.5)
+Host is up (0.00016s latency).
+PORT   STATE SERVICE VERSION
+80/tcp open  http    nginx 1.10.3 (Ubuntu)
+| http-robots.txt: 1 disallowed entry 
+|_/cookie.txt
+|_http-server-header: nginx/1.10.3 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Contents of cookie.txt jive with hints.
