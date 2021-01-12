@@ -1,4 +1,4 @@
-# KringleCon3Answers
+# KringleCon3: French Hens
 This folder contains my [write-up](KringleCon3-solution.pdf) and code for the 
 [SANS Holiday Hack Challenge 2020](https://holidayhackchallenge.com/2020/).  
 
